@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+.image1 {
+    width: 60%;
+    margin: auto;
+    height: 620px;
+    border-radius: 89px;
+    text-align: left;
+    margin-top: 40px;
+    margin-left: -470px;
+
+}
+
+.sentence1{
+    margin-top: -500px;
+    margin-left: 200px;
+    font-size: 50px;
+    font-weight: 4px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: rgb(255, 255, 255);
+    line-height: 0.1;
+    text-align: left;
+
+}
+
+.findmypet {
+    padding: 13px 40px;
+    background-color: #EE7A26;
+    color: white;
+    border-radius: 25px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 28px;
+    margin-top: -540px;
+    margin-left: -1300px;
+    
+}
+
+.sentence2{
+    margin-top: 20px;
+    margin-left: 200px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #5dc0ce;
+    line-height: 0.1;
+    font-size: 25px;
+    font-weight: 4px;
+    padding-bottom: 10px;
+    text-align: left;
+
+}
+
+.rescue{
+    width: 150px;
+    height: 150px;
+    margin-top: 120px;
+    margin-left: 180px;
+
+}
+
+
+.square {
+    width: 200px;
+    height: 200px;
+    background-color: #eeecec; 
+    margin: 20px;
+    display: inline-block;
+    margin-top: 130px;
+    margin-left: 50px;
+    border-radius: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+
+}
+
+
+.containersq {
+    text-align: center;
+    background-color: aliceblue;
+    width: 130%;
+    margin-top: -25px;
+
+
+}
+
+.squares-container {
+    display: flex;
+    justify-content: center;
+    margin-left: -480px;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(211, 228, 231);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+    
+}

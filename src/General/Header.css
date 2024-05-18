@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    text-align: center;
+    display: inline-block;
+}
+
+
+
+.logo{
+    font-size: 21px;
+    font-weight: 500;
+    position: absolute;
+    left: 20px; 
+    top: -8px;
+    
+}
+
+nav {
+    background-color: #74b0b5;
+    padding: 15px ;
+    box-shadow: 0 0 3px #0000;
+    position: relative; 
+    color: black;
+
+}
+
+nav ul li{
+    list-style-type: none;
+    text-decoration-line: none;
+    
+
+}
+
+.AboutUs{
+    color: black;
+    text-decoration-line: none;
+
+}
+
+.logo, .AboutUs, .LogIn, .SignUp,.Lan, .vertical-line {
+    position: absolute; 
+    text-decoration-line: none;
+    color: black;
+
+}
+
+.AboutUs {
+    left: 120px; 
+    top: 14px; 
+
+}
+
+
+.triangle-down{
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 8px solid black;
+    position: absolute;
+    top: 17px; 
+    right: 220px;
+
+}
+.Lan {
+    right: 190px; 
+    top: 14px;
+    color: black;
+
+
+}    
+
+
+.SignUp 
+    {
+    border-radius: 0px 50px 50px 0;
+    border: none;
+    background-color: #97c7cc;
+    padding: 7px 9px;
+    right: 50px; 
+    color: black;
+    top: 6px; 
+}
+
+.LogIn {
+    border-radius: 50px 0 0 50px;
+    border: none;
+    background-color: white;
+    padding: 7px 9px;
+    right: 120px; 
+    color: black;
+    top: 6px; 
+}
+
+.vertical-line {
+    border-left: 1.5px solid black; 
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    right: 185px;
+    margin-top: -10px;
+    margin-right: 2px;
+}
+
+
+
+.orange-navbar {
+    background-color: #F69F60;
+    color: black;
+    padding: 10px 0; 
+    width:1450px;
+    text-decoration: none;
+    list-style-type: none;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+
+
+
+
+}
+
+.navcontainer li a{
+    width: 85%;
+    color: black;
+    margin: 10px auto;
+    text-decoration: none;
+    margin-left: 200px;
+}
+
+
+
+.navcontainer{
+    width: 85%;
+    color: black;
+    display: flex;
+    text-decoration: none;
+    justify-content:  space-evenly ;
+}

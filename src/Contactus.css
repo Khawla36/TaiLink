@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+.contact-containerr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px; /* Adjust the margin-top value to move the content up */
+    font-family: "Josefin Sans", sans-serif;
+    padding: 0px;
+    background-image: url("./media/Contactus.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 678px;
+}
+
+
+
+.rectangle {
+    background-color: rgba(235, 201, 162, 0.5);
+    border-radius: 27px;
+    width: 400px;
+    height: 350px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px ;
+    margin-bottom:20px;
+}
+
+.contact1 {
+    color: #e48654;
+    font-size: 30px;
+    font-weight: 1700;
+    text-decoration: none;
+    margin: 40px 0 10px 0; 
+    padding: 30px;
+}
+
+
+.foryou{
+    margin-bottom: 20px;
+}
+
+.sendmail {
+    font-size: 13px;
+    margin-top: 10px; 
+}
+
+.button {
+    background-color: #F69F60;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    border: none;
+    border-radius: 21px;
+    color: black;
+    padding: 10px 35px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 18px;
+}
+
+
+.na1{
+    margin-left: -220px;
+    margin-bottom: 0px;
+}
+
+.Name {
+    border-radius: 26px;
+    background:  #F69F60;
+    width: 270px;
+    height: 30px;
+    margin: 5px;
+    text-align: centar;
+    border: none;
+    opacity: 0.7;
+
+
+
+}
+
+.sendmail{
+    margin-top: 2px;
+    font-size: 13px;
+    
+}
+
+.message {
+    border-radius: 21px;
+    background:  #F69F60;
+    border: none;
+    width: 270px;
+    height: 150px;
+    margin: 10px;
+    text-align: left;
+    opacity: 0.7;
+
+}
+.sendbutton {
+    background-color: #F69F60;
+    font-family: "Josefin Sans", sans-serif;
+    font-size:18px;
+    border: none;
+    border-radius: 21px;
+    color: black;
+    padding: 10px 35px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 18px;
+    }
+

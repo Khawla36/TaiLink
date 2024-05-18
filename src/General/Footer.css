@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+footer {
+    background: #74b0b5;
+    padding-top: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    padding: 12px;
+    margin: 0;
+    overflow-x: hidden;
+    text-align: center;
+    margin-top: 0px;
+    width: 1450px;
+    height: 30px;
+
+}
+.aboutcontact{
+    margin-top: 0px;
+}
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+footer a {
+    text-decoration: none; 
+    color: black;
+    margin-top: 100px;
+}
+
+footer ul li {
+    display: inline-block;
+    margin: 0 25px; 
+}
+
+footer p {
+    margin-top: -10px;
+}
+
+
+

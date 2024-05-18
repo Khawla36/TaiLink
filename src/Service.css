@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+
+.content-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px; 
+    font-family: "Josefin Sans", sans-serif;
+    padding: 0px;
+    background-image: url("./media/service.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 675px;
+}
+
+.Hello{
+    margin-top: -50px;
+    font-size: 50px;
+    color: white;
+    font-weight: 1000;
+}
+
+.Miss{
+
+    margin-top: 30px;
+    font-size: 30px;
+    color: white;
+    font-weight: 10px;
+}
+
+.Micro-num{
+    border-radius:30px ;
+    padding: 15px 100px;
+    margin-top: 10px;
+    text-align: left;
+    background-color: antiquewhite;
+    cursor: pointer;
+    background: #EACC82;
+    font-family: 'Josefin Sans';
+    outline: none;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+
+
+     
+.location{
+    padding: 15px 40px;
+    cursor: pointer;
+    display: block;
+    background: #F7934B;
+    border: 0;
+    outline: none;
+    border-radius: 30px;
+    margin: 20px ; 
+    font-family: 'Josefin Sans';
+    color: white;
+    font-size: 15px;
+}
