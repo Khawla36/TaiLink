@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+.model-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(197, 177, 155, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.contact-containerr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Josefin Sans", sans-serif;
+    padding: 2px;
+    left: 20px;
+}
+
+.rectangle {
+    background-color: rgba(238, 211, 181, 1);
+    border-radius: 27px;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.contact1 {
+    color: #faaa71;
+    font-size: 35px;
+    font-weight: 700;
+    text-decoration: none;
+    margin: 30px 0;
+    padding: 10px;
+}
+
+.foryou {
+    margin-top: 15px;
+    color: black;
+}
+
+.Name, .message {
+    border-radius: 26px;
+    background:  #e9bfa1;
+    width: 230px;
+    height: 60px;
+    margin: 5px;
+    border: none;
+    padding: 0px;
+    border: none;
+    outline: none;
+
+}
+
+.message {
+        border-radius: 26px;
+        background: #e9bfa1;
+        width: 230px;
+        height: 220px;
+    
+        margin: 5px;
+        border: none;
+        padding-bottom: 20px;
+        box-sizing: border-box; /* וודא שה-padding נכלל ברוחב ובגובה */
+        overflow: auto; 
+        border: none;
+        outline: none;  
+    }
+    .message::placeholder{
+        position: relative;
+        bottom:  35px;
+    }
+    
+    
+
+
+.sendbutton {
+    background-color: #faaa71;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 21px;
+    color: rgb(12, 12, 12);
+    padding: 10px 35px;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.close-button {
+    position: absolute;
+    z-index: 100000;
+    margin-top: 260px;
+    margin-left: 970px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    align-self: flex-end;
+}
