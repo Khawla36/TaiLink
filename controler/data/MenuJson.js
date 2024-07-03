@@ -1,86 +1,120 @@
 
 const MenuJson=[
-
     {
         menuId:1,
-        MenuName:"Header",
-        text:"",
-        url:["./Arbic","./Hebrow"],
-        style:"triangle-down"
+        MenuName:"Header1",
+        itemId:1,
+        itemtext:"TaiLink",
+        itemurl:"./Homepage",
+        itemstyle:"logo",
+
     },
 
     {
         menuId:1,
-        MenuName:"Header",
-        text:"EN",
-        url:" ",
-        style:"Lan",
+        MenuName:"Header1",
+        itemId:2,
+        itemtext:"",
+        itemurl:["./Arbic","./Hebrow"],
+        itemstyle:"triangle-down"
+    },
+
+    {
+        menuId:1,
+        MenuName:"Header1",
+        itemId:3,
+        itemtext:"EN",
+        itemurl:" ",
+        itemstyle:"Lan",
 
     }, 
         {
         menuId:1,
-        MenuName:"Header",
-        text:" ",
-        url:" ",
-        style:"vertical-line",
+        MenuName:"Header1",
+        itemId:4,
+        itemtext:" ",
+        itemurl:" ",
+        itemstyle:"vertical-line",
     },
 
     {
         menuId:1,
-        MenuName:"Header",
-        text:"Sign Up",
-        url:"/Signup",
-        style:"SignUp",
+        MenuName:"Header1",
+        itemId:5,
+        itemtext:"Sign Up",
+        itemurl:"/Signup",
+        itemstyle:"SignUp",
 
     },
 
     {
         menuId:1,
-        MenuName:"Header",
-        text:"Log In",
-        url:"/Login",
-        style:"LogIn",
+        MenuName:"Header1",
+        itemId:6,
+        itemtext:"Log In",
+        itemurl:"/Login",
+        itemstyle:"LogIn",
 
     },
 
     {
         menuId:2,
-        text:"Buy a microchip",
-        url:"/buyamicrochip",
-        style:"orange-text",
+        MenuName:"Header2",
+        itemId:7,
+        itemtext:"Buy a microchip",
+        itemurl:"/buyamicrochip",
+        itemstyle:"orange-text",
 
     },
 
     {
         menuId:2,
-        text:"Help animals",
-        url:"./helpanimals",
-        style:"orange-text",
+        MenuName:"Header2",
+        itemId:8,
+        itemtext:"Help animals",
+        itemurl:"./helpanimals",
+        itemstyle:"orange-text",
 
     },
 
     {
         menuId:2,
-        text:"Post last animals",
-        url:"./postlastanimals",
-        style:"orange-text",
+        MenuName:"Header2",
+        itemId:9,
+        itemtext:"Post last animals",
+        MenuName:"Header2",
+        itemurl:"./postlastanimals",
+        itemstyle:"orange-text",
+
+    },
+ 
+    {
+        menuId:3,
+        MenuName:"Footer",
+        itemId:10,
+        itemtext:"About Us",
+        itemurl:"./Aboutus",
+        itemstyle:"AboutUs",
 
     },
     {
         menuId:3,
-        text:"TaiLink",
-        url:"./Homepage",
-        style:"logo",
+        MenuName:"Footer",
+        itemId:11,
+        itemtext:"Contact us",
+        itemurl:"./Contactus",
+        itemstyle:"Contactus",
 
     },
     {
         menuId:3,
-        text:"About Us",
-        url:"./Aboutus",
-        style:"AboutUs",
+        MenuName:"Footer",
+        itemId:12,
+        itemtext:"&copy; 2024 TaiLink. All right reserved",
+        itemurl:"",
+        itemstyle:"p",
 
     },
-
     ]
 
     module.exports = {MenuJson};

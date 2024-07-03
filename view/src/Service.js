@@ -1,47 +1,113 @@
 import React, { Component } from "react";
+import axios from "axios";
 import "./Service.css";
+import { Progress } from 'react-sweet-progress';
+import "react-sweet-progress/lib/style.css";
 
-export default class Service extends Component {
+class Service extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        servicepage: null,
+            servicePage: null,
+            contentArray: [],
+            loading: false,
+            progress: 0,
+            error: null,
         };
     }
 
     componentDidMount() {
-        const pageName = "Service1";
-        fetch(`http://localhost:3001/${pageName}`,{
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({})
-          })  
-            .then(response => response.json())
-            .then(page => {
-                this.setState({ servicepage: page });
+        fetch("http://localhost:3001/pages/6", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({}),
+        })
+            .then((response) => response.json())
+            .then((page) => {
+                console.log('Fetched page:', page);
+                let contentArray = [];
+                try {
+                    contentArray = Array.isArray(page.content)
+                        ? page.content
+                        : JSON.parse(page.content);
+                } catch (error) {
+                    console.error('Error parsing content:', error);
+                }
+                console.log('Content array:', contentArray);
+                this.setState({ servicePage: page, contentArray });
             })
-            .catch(error => console.error('Error fetching data:', error));
+            .catch((error) => this.setState({ error: "Error fetching data" }));
     }
 
+    fetchData = async () => {
+        this.setState({
+            loading: true,
+            progress: 0,
+        })
+
+        try {
+            const response = await axios.get("http://localhost:3001/trackipetmap", {
+                onDownloadProgress: (e) => {
+                    const total = e.total;
+                    const current = e.loaded;
+                    const progress = Math.round((current / total) * 100);
+                    this.setState({ progress });
+                }
+            });
+
+            const { lat, lng } = response.data;
+            console.log(response.data);
+            const interval = setInterval(() => {
+                this.setState((prevState) => {
+                    if (prevState.progress >= 100) {
+                        clearInterval(interval);
+                        setTimeout(() => { window.location.href = `/map?lat=${lat}&lng=${lng}`; }, 1000);
+                    }
+                    return { progress: prevState.progress + 10 };
+                });
+            }, 200);
+
+        } catch (error) {
+            console.error(error);
+            this.setState({ error: "Error fetching location data" });
+        } finally {
+            this.setState({ loading: false })
+        }
+    };
+
     render() {
-        const { servicepage } = this.state;
-        if (!servicepage) return <div>PAGE NOT FOUND</div>;
-        const contentService = servicepage.content;
-       
-   
+        const { servicePage, contentArray, loading, progress, error } = this.state;
+
+        if (error) return <div>{error}</div>;
+        if (!servicePage) return <div>PAGE NOT FOUND</div>;
+
         return (
             <div className="container">
-                <div className="image-section"></div>     
-                <div className="paw"></div>
-                <div className="content-section">
-                    <p className="Hello">{contentService[0]}</p>
-                    <p className="Miss">{contentService[1]}</p>
-                    <button type="submit" className="location">Pet's Location</button>
-                    
-                </div>
+                {loading ? (
+                    <div>
+                        <Progress type="circle" percent={progress} />
+                    </div>
+                ) : (
+                    <div className="content-section">
+                        {contentArray.length > 0 ? (
+                            <>
+                                <p className="Hello">{contentArray[0]?.p || contentArray[0]}</p>
+                                <p className="Miss">{contentArray[1]?.p || contentArray[1]}</p>
+                            </>
+                        ) : (
+                            <div>No content available</div>
+                        )}
+
+                        <img src="./media/dog1.png" alt="Dog" className="dog-image" />
+
+                        <button className="location" onClick={this.fetchData}>
+                            Pet's Location
+                        </button>
+                    </div>
+                )}
             </div>
         );
     }
 }
+
+export default Service;

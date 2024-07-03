@@ -32,7 +32,7 @@ const PagesJson = [
 
   {
   pageId:3,
-  PageName:"LogIn",
+  PageName:"Login",
   url: "/Login",
   content:[""],
   buttons:[{ type: "button", className: "toggle-btn1",text:"Log in" },

@@ -1,0 +1,67 @@
+#map {
+    flex: 1;
+    height: 810px;
+    margin: 0;
+}
+
+.sidebar {
+    width: 17%;
+    height: 810px;
+    background-color: #f9e5d5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.photo-container-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.photo {
+    max-width: 170%;
+    max-height: 170%;
+    object-fit: contain;
+    place-items: center;
+    margin-right: 40px;
+}
+
+.dog-info {
+    text-align: center;
+    margin-top: -30px;
+}
+
+.info-text {
+    background-color: #B5D1D4; 
+    padding: 8px 18px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:500;
+    color: black;
+
+}
+
+.photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    flex: 1; 
+}
+
+.app-container {
+    display: flex;
+    margin-top: -25px;
+}
+
+.content-container-2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+}

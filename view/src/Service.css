@@ -1,76 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 .container {
-
-    height: 785px;
-    background-color: #f0f0f0;
-    padding: 70px;
-    margin-top: -27px;
-    flex-direction: row-reverse;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  font-family: "Josefin Sans", sans-serif;
+  margin-bottom: 130px;
 }
+
 .image-section {
-    background-image: url("./media/dog1.png");
-    background-size:60%; 
-    background-repeat: no-repeat;
-    margin-top: -150px; 
-    background-position: center right; 
-    margin-right: -305px;
-    height: 970px;
-    width: auto; 
-    
+  background-image: url("./media/dog1.png");
+  background-size: 60%; 
+  background-repeat: no-repeat;
+  background-position: center right; 
+  height: 300px;
+  width: auto; 
 }
-
-
 
 .content-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: "Josefin Sans", sans-serif;
-    border-radius: 30%;
-    border: 5px solid #fab681;
-    background-color:#fab681 ;
-    height: 400px;   
-    width: 500px; 
-    margin-top: -740px;
-    margin-left: 100px;  
-    z-index: 1111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 200px;
 }
 
-
-
 .Hello {
-    margin-top: -400px;
-    font-size: 30px;
-    font-weight: 1000;
-    padding: 10px;
+  font-size: 30px;
+  font-weight: 1000;
+  margin-top: 390px;
+  z-index: 111111;
 }
 
 .Miss {
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: 400; /* Normalized font-weight */
-}
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 20px;
+  z-index: 111111;
 
+}
 
 .location {
-    padding: 15px 40px;
-    cursor: pointer;
-    display: block;
-    background: #B5D1D4;
-    border: 0;
-    outline: none;
-    border-radius: 30px;
-    margin: 20px;
-    font-family: 'Josefin Sans';
-    color: rgb(44, 44, 44);
-    margin-bottom: -400px;
-    font-size: 15px;
-    font-weight: 1000;
-}
+  padding: 15px 40px;
+  background: #B5D1D4;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 1000;
+  color: rgb(44, 44, 44);
+  font-family: "Josefin Sans", sans-serif;
+  margin-bottom: 10px;
 
-.paw{
-    background-image: url("./media/paw.png");
-    width: 10px;
+
+}
+.dog-image {
+    width: 100%; 
+    max-width: 400px; 
+    height: auto; 
+    margin-top: -30px;
 }

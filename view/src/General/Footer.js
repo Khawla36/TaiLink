@@ -1,51 +1,81 @@
-import  {Component}  from "react";
+import React, { Component } from "react";
 import "./Footer.css";
-import {Modal,Box} from '@mui/material';
 import Contactus from "../Contactus";
-import "../Contactus.css"
+import "../Contactus";
 
-export default class Footer extends Component{
-    constructor(props){
-        super(props);
-        this.state =
-         {isOpen: false};
-    }
-    openModal = () => {
-        this.setState({isOpen: true});
+export default class Footer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false,
+      footerdata: null,
+    };
+  }
 
-    }
+  openModal = () => {
+    this.setState({ isOpen: true });
+  };
+
   closeModal = () => {
-        this.setState({isOpen: false});
-    }
+    this.setState({ isOpen: false });
+  };
 
-    render(){
+  componentDidMount() {
+    this.fetchFooterMenu();
+  }
 
-         return(
-            
-        <footer>   
+  fetchFooterMenu = () => {
+    fetch(`http://localhost:3001/menupagesquary/3`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({})
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ footerdata: data });
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  }
 
+  render() {
+    const { footerdata } = this.state;
+    if (!footerdata) return <div>FOOTER MENU DATA..</div>;
 
+    return (
+      <footer>
         <ul className="aboutcontact">
-            <li><a className="us" href="./Aboutus">About Us </a></li>
-            <li><button className="contactusbottun" onClick={this.openModal}>Contact Us</button></li>
+
+
+          {footerdata.filter(menuItem => menuItem.itemId === 10).map(footerMenu => (
+          <li>
+            <a className={footerMenu.itemstyle} href="./Aboutus"> {footerMenu.itemtext}{" "} </a>
+          </li>
+          ))}
+
+         {footerdata.filter(menuItem => menuItem.itemId === 11).map(footerMenu => (
+          <li>
+            <button className={footerMenu.itemstyle} onClick={this.openModal}> {footerMenu.itemtext} </button>
+          </li>
+         ))}
         </ul>
 
-        <p>&copy; 2024 TaiLink. All right reserved</p>
-        <Modal
-        open={this.state.isOpen}
-        onClose={this.closeModal}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        >
-        < Box > 
-        <button className="close-button" onClick={this.closeModal}>&times;</button>
-        <Contactus />
-        </Box>      
-
-      </Modal>
-
-    </footer>
-
-        );
-    }
+        {footerdata.filter(menuItem => menuItem.itemId === 12).map(footerMenu => (
+        <p>&copy; {footerMenu.itemtext}</p>
+        ))}
+        
+        {this.state.isOpen && (
+          <div className="modal">
+            <div className="modal-content">
+              <button className="close-button" onClick={this.closeModal}>
+                &times;
+              </button>
+              <Contactus />
+            </div>
+          </div>
+        )}
+      </footer>
+    );
+  }
 }

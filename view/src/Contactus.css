@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
-.model-backdrop {
+.model-backdropp {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@
     left: 20px;
 }
 
-.rectangle {
+.rectanglee {
     background-color: rgba(238, 211, 181, 1);
     border-radius: 27px;
     width: 400px;
@@ -69,7 +69,7 @@
         margin: 5px;
         border: none;
         padding-bottom: 20px;
-        box-sizing: border-box; /* וודא שה-padding נכלל ברוחב ובגובה */
+        box-sizing: border-box;
         overflow: auto; 
         border: none;
         outline: none;  
@@ -98,13 +98,10 @@
 }
 
 .close-button {
-    position: absolute;
-    z-index: 100000;
-    margin-top: 260px;
-    margin-left: 970px;
+    left: 11rem;
+    top: -39rem;
     background: none;
     border: none;
-    font-size: 24px;
-    cursor: pointer;
-    align-self: flex-end;
+ 
+
 }

@@ -6,43 +6,62 @@ export default class Contactus extends Component {
         super(props);
         this.state = {
             contactuspage: null,
+            pageData: null
         };
     }
-   
     componentDidMount() {
-        const pageName = "Contact Us";
-        fetch(`http://localhost:3001/${pageName}`,{
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({})
-          }) 
+        this.fetchPageData();
+        this.fetchContactuspage();
+    }
+    fetchContactuspage=()=>{
+            fetch(`http://localhost:3001/forms/1`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            }) 
             .then(response => response.json())
-            .then(page => {
-                this.setState({ contactuspage: page });
+            .then(data => {
+                this.setState({ contactuspage : data });
             })
             .catch(error => console.error('Error fetching data:', error));
-    }
-    modalClose=()=>{
+            
+        }
 
+    fetchPageData= ()=>{
+        fetch(`http://localhost:3001/pages/2`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        }) 
+        .then(response => response.json())
+        .then(page => {
+            this.setState({ pageData: page });
+        })
+        .catch(error => console.error('Error fetching data:', error));
     }
+   
+  
     render() {
-        
-        const { contactuspage } = this.state;
-        if (!contactuspage) return <div>PAGE NOT FOUND</div>;
-        const contentContact = contactuspage.content;
-        const textContact = contactuspage.text;
-      
-        return (
-            <div className="model-backdrop">
-                <div className="contact-containerr">
-                    <div className="rectangle">
-                       
-                        <h1><a href="#" className="contact1">{contactuspage.PageName}</a></h1>
-                        <p className="foryou">{contentContact}</p>
+        const { contactuspage,pageData } = this.state;
+        if (!contactuspage) return <div>CONTACTUS PAGE DATA..</div>;
+        if (!pageData) return <div>PAGE NOT FOUND</div>;
 
-                        {textContact.map((item, index) => (
+        const contentContact = contactuspage || [];
+        const formContents = contactuspage.formContents || [];
+    
+        return (
+            <div className="model-backdropp">
+                <div className="contact-containerr">
+                    <div className="rectanglee">
+                    <h1><a href="#" className="contact1">{pageData.PageName}</a></h1>
+                        
+                        <p className="foryou">{pageData.content}</p>
+
+                        {contactuspage.map((item, index) => (
                             <input
                                 key={index}
                                 type={item.type}
@@ -51,7 +70,6 @@ export default class Contactus extends Component {
                                 required
                             />
                         ))}
-                      
 
                         <input type="submit" className="sendbutton" value="Send" />
                     </div>

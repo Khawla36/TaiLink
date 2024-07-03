@@ -96,9 +96,9 @@ nav ul li button {
 }
 
 .orange-navbar {
-  background-color: #fab681;
+  background-color: #f9a972;
   color: black;
-  padding: 20px 0;
+  padding: 10px 0;
   width: 100%;
   text-decoration: none;
   list-style: none;
@@ -115,7 +115,7 @@ nav ul li button {
 }
 
 .navcontainer li {
-  margin-top: -11px;
+  margin-top: -1px;
 }
 
 .navcontainer li a {
@@ -125,3 +125,4 @@ nav ul li button {
   margin-bottom: 1px;
 
 }
+
