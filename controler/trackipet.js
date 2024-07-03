@@ -2,12 +2,12 @@ const axios = require("axios");
 const querystring = require("querystring");
 
 // Define constants
-const user_name = "koko.hamdi123@gmail.com";
-const password = "Test@1234";
-const server_url = "https://plus.trackimo.com";
-const client_id = "9092cd94-a728-47b7-86da-e15c9a3d4cdb";
-const client_secret = "9f540cd42ec8d3bc452ce39cdd3d6de4";
-const redirect_uri = "https://plus.trackimo.com/api/internal/v1/oauth_redirect";
+const user_name = "";
+const password = "";
+const server_url = "";
+const client_id = "";
+const client_secret = "";
+const redirect_uri = "";
 
 async function do_login_and_get_access_token() {
   try {
