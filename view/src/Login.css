@@ -1,28 +1,46 @@
+/* Login.css */
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
-.content-container {
-  background-image: url("./media/logsign.png");
-  background-size: cover;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 89vh;
-  margin-top: 45px;
-  background-repeat: no-repeat;
-}
-
-.formboxx {
-  border-radius: 20px;
-  width: 600px;
-  padding: 20px;
-  position: relative;
-  bottom: -8rem;
-  margin: -3% auto;
-  background: rgba(251, 220, 220, 0.4);
-  display: flex;
-  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(255, 12, 12, 4);
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
-  text-align: center; 
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #f7c99c;
+  margin: auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .button-boxx {
@@ -37,26 +55,14 @@
   background: transparent;
   border: 0;
   outline: none;
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
+  transition:  0.3s ease, color 0.3s ease;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .toggle-btn1.active {
   background: #f7934b;
   color: white;
-  border-radius: 30px;
-}
-
-#btn {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 110px;
-  height: 80%;
-  background: #f7934b;
-  border-radius: 30px;
-  transition: 0.5s;
+  border-radius: 5px;
 }
 
 .social-icons {
@@ -78,48 +84,56 @@
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  text-align: center; 
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .input-left,
 .input-right {
-  width: 48%;
-  margin-bottom: 0; 
+  width: 49%;
+  margin-bottom: 0;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .input-left {
-  margin-right: 2%; 
+  margin-right: 2%;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .input-right {
-  margin-top: -40px; 
+  margin-top: -40px;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .input-field1,
 .input-field {
   border: none;
-  border-radius: 100px;
+  border-radius: 5px;
   background-color: #fff;
   outline: none;
   width: 90%;
   height: 40px;
   margin-bottom: 10px;
   padding: 0 15px;
-  padding-left: 20px; 
+  padding-left: 20px;
+  font-family: "Josefin Sans", sans-serif;
 }
+
 .input-field1_login,
 .input-field_login {
   border: none;
-  border-radius: 100px;
+  border-radius: 5px;
   background-color: #fff;
   outline: none;
   display: flex;
-
-  width: 110%;
+  width: 60%;
   height: 40px;
   margin-bottom: 10px;
   padding: 0 15px;
-  padding-left: 20px; 
+  padding-left: 20px;
+  align-items: center;
+  margin-left: 90px;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .submit-btnn {
@@ -131,9 +145,9 @@
   background: #f7934b;
   border: 0;
   outline: none;
-  border-radius: 30px;
+  border-radius: 5px;
+  font-family: "Josefin Sans", sans-serif;
 }
-
 
 span {
   color: #a42626;
@@ -143,10 +157,11 @@ span {
 }
 
 .forget {
-  margin-left: 70px;
+  margin-left: 180px;
   text-decoration: none;
   color: black;
   opacity: 0.5;
   font-size: 12px;
   margin-bottom: 100px;
+  font-family: "Josefin Sans", sans-serif;
 }

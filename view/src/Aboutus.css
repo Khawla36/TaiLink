@@ -13,19 +13,19 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 785px;
+    height: 820px;
 }
 
 .TaiLink-About{
   font-size: 45px;
-  color: #faaa71;
+  color: #e97b2c;
   font-weight: 2000;
   margin-top: -10px;
 }
 
 
 .about-rectangle {
-    background-color: rgba(80, 69, 56, 0.5);
+    background-color: rgba(175, 173, 171, 0.6);
     border-radius: 27px;
     width: 800px;
     height: 500px;

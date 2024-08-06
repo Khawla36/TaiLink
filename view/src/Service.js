@@ -43,35 +43,39 @@ class Service extends Component {
         this.setState({
             loading: true,
             progress: 0,
-        })
+        });
 
         try {
-            const response = await axios.get("http://localhost:3001/trackipetmap", {
-                onDownloadProgress: (e) => {
-                    const total = e.total;
-                    const current = e.loaded;
+            const response = await axios.post("http://localhost:3001/trackipetmap", {
+                pet_id: 1, // Replace with the correct pet_id
+            }, {
+                onDownloadProgress: (progressEvent) => {
+                    const total = progressEvent.total || 100;
+                    const current = progressEvent.loaded;
                     const progress = Math.round((current / total) * 100);
+                    console.log("Progress:", progress, "Loaded:", current);
                     this.setState({ progress });
                 }
             });
 
             const { lat, lng } = response.data;
-            console.log(response.data);
             const interval = setInterval(() => {
                 this.setState((prevState) => {
-                    if (prevState.progress >= 100) {
+                    const newProgress = Math.min(prevState.progress + 10, 100);
+                    if (newProgress >= 100) {
                         clearInterval(interval);
-                        setTimeout(() => { window.location.href = `/map?lat=${lat}&lng=${lng}`; }, 1000);
+                        setTimeout(() => { 
+                            window.location.href = `/map?lat=${lat}&lng=${lng}&pet_id=1`; 
+                        }, 1000); 
                     }
-                    return { progress: prevState.progress + 10 };
+                    return { progress: newProgress };
                 });
             }, 200);
-
         } catch (error) {
             console.error(error);
             this.setState({ error: "Error fetching location data" });
         } finally {
-            this.setState({ loading: false })
+            this.setState({ loading: false });
         }
     };
 

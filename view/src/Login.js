@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import "./Login.css";
 
-export default class Login extends Component {
+export default class LoginModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeTab: "Sign up",
+      activeTab: this.props.activeTab || "Sign up",
       formData: {},
-      buttonsdata: [],
+      buttonsData: [],
       left: [],
       right: [],
       loginFormData: {},
-      loginButtonsdata: [],
+      loginButtonsData: [],
       loginText: [],
       loginImages: {},
       signupImages: {},
@@ -23,40 +23,33 @@ export default class Login extends Component {
   componentDidMount() {
     this.fetchPageData("Signup");
     this.fetchPageData("Login");
-    this.fetchSignupage(3)
-    this.fetchSignupage(2)
-
-  
+    this.fetchSignupPage(3);
+    this.fetchSignupPage(2);
   }
 
-  fetchSignupage = (formId) => {
-    
+  fetchSignupPage = (formId) => {
     fetch(`http://localhost:3001/forms/${formId}`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({}),
+      body: JSON.stringify({})
     })
       .then((response) => response.json())
       .then((data) => {
         if (data && Array.isArray(data)) {
-          
-
-          if (formId=== 3) {
+          if (formId === 3) {
             this.setState({
               formData: this.buildInitialFormData(data),
-              buttonsdata: data.buttons,
-              left: data.filter(field => field.side === 'left'),
-              right: data.filter(field => field.side === 'right'),
-              
+              buttonsData: data.buttons || [],
+              left: data.filter(field => field.side === 'left') || [],
+              right: data.filter(field => field.side === 'right') || []
             });
           } else if (formId === 2) {
             this.setState({
               loginFormData: this.buildInitialFormData(data),
-              loginButtonsdata: data.buttons,
-              loginText: data,
-              
+              loginButtonsData: data.buttons || [],
+              loginText: data || []
             });
           } else {
             console.error("Unexpected data", data);
@@ -78,9 +71,15 @@ export default class Login extends Component {
       .then(response => response.json())
       .then(page => {
         if (pageType === "Signup") {
-          this.setState({ pageDataSignup: page ,signupImages: { img1: page.Img1, img2: page.Img2 } });
+          this.setState({
+            pageDataSignup: page,
+            signupImages: { img1: page.Img1, img2: page.Img2 }
+          });
         } else {
-          this.setState({ pageDataLogin: page,loginImages: { img1: page.Img1, img2: page.Img2 } });
+          this.setState({
+            pageDataLogin: page,
+            loginImages: { img1: page.Img1, img2: page.Img2 }
+          });
         }
       })
       .catch(error => console.error('Error fetching data:', error));
@@ -88,21 +87,9 @@ export default class Login extends Component {
 
   buildInitialFormData = (data) => {
     const initialFormData = {};
-    data?.forEach((field) => {
-      if (field.placeholder) {
-        initialFormData[field.placeholder.replace(/ /g, "").toLowerCase()] = field.value;
-      } else if (field.left || field.right) {
-        field.left?.forEach((subField) => {
-          initialFormData[
-            subField.placeholder.replace(/ /g, "").toLowerCase()
-          ] = subField.value;
-        });
-        field.right?.forEach((subField) => {
-          initialFormData[
-            subField.placeholder.replace(/ /g, "").toLowerCase()
-          ] = subField.value;
-        });
-      }
+    data.forEach((field) => {
+      const key = field.placeholder.replace(/ /g, "").toLowerCase();
+      initialFormData[key] = field.value;
     });
     return initialFormData;
   };
@@ -110,14 +97,18 @@ export default class Login extends Component {
   setActiveTab = (tab) => {
     this.setState({ activeTab: tab });
   };
-  
+
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState((prevState) => ({
       formData: {
         ...prevState.formData,
-        [name]: value,
+        [name]: value
       },
+      loginFormData: {
+        ...prevState.loginFormData,
+        [name]: value
+      }
     }));
   };
 
@@ -125,129 +116,99 @@ export default class Login extends Component {
     const {
       activeTab,
       formData,
-      buttonsdata,
+      buttonsData,
       left,
       right,
       loginFormData,
-      loginButtonsdata,
+      loginButtonsData,
       loginText,
       loginImages,
-      signupImages,
+      signupImages
     } = this.state;
-   
-    console.log(loginFormData)
+
     return (
-      <div className="content-container">
-        <div className="formboxx">
-          <div className="button-boxx">
-            {buttonsdata?.map((value, index) => (
+      <div className={`modal ${this.props.show ? 'show' : ''}`}>
+        <div className="modal-content">
+          <div className="close" onClick={this.props.onClose}>&times;</div>
+          <div className="formboxx">
+            <div className="button-boxx">
               <button
-                key={index}
-                type="button"
-                className={`toggle-btn1 ${
-                  activeTab === value.text ? "active" : ""
-                }`}
-                onClick={() => this.setActiveTab(value.text)}
+                className={`toggle-btn1 ${activeTab === "Log in" ? "active" : ""}`}
+                onClick={() => this.setActiveTab("Log in")}
               >
-                {value.text}
+                Log In
               </button>
-            ))}
-          </div>
-          {activeTab === "Sign up" && (
-            <h1>Sign up</h1>
-          )}
-           {activeTab === "Log in" && (
-             <h1>Log in</h1>
-          )}
-          <div className="social-icons">
-            <img
-              src={
-                activeTab === "Sign up" ? signupImages.img1 : loginImages.img1
-              }
-              alt="social icon 1"
-            />
-            <img
-              src={
-                activeTab === "Sign up" ? signupImages.img2 : loginImages.img2
-              }
-              alt="social icon 2"
-            />
-          </div>
+              <button
+                className={`toggle-btn1 ${activeTab === "Sign up" ? "active" : ""}`}
+                onClick={() => this.setActiveTab("Sign up")}
+              >
+                Sign Up
+              </button>
+            </div>
+            <div className="social-icons">
+              <img
+                src={activeTab === "Sign up" ? signupImages.img1 : loginImages.img1}
+                alt="social icon 1"
+              />
+              <img
+                src={activeTab === "Sign up" ? signupImages.img2 : loginImages.img2}
+                alt="social icon 2"
+              />
+            </div>
 
-          {activeTab === "Sign up" && (
-            
-            <form className="input-group">
-              <div className="input-left">
-            
+            {activeTab === "Sign up" && (
+              <form className="input-group">
+                <div className="input-left">
+                  {left.map((item, index) => (
+                    <input
+                      key={index}
+                      type={item.type}
+                      className="input-field"
+                      placeholder={item.placeholder}
+                      name={item.placeholder.replace(/ /g, "").toLowerCase()}
+                      value={formData[item.placeholder.replace(/ /g, "").toLowerCase()] || ""}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  ))}
+                </div>
+                <div className="input-right">
+                  {right.map((item, index) => (
+                    <input
+                      key={index}
+                      type={item.type}
+                      className="input-field"
+                      placeholder={item.placeholder}
+                      name={item.placeholder.replace(/ /g, "").toLowerCase()}
+                      value={formData[item.placeholder.replace(/ /g, "").toLowerCase()] || ""}
+                      onChange={this.handleChange}
+                      required
+                    />
+                  ))}
+                </div>
+                <button type="submit" className="submit-btnn">Sign up</button>
+              </form>
+            )}
 
-                {left?.map((item, index) => (
+            {activeTab === "Log in" && (
+              <form className="input-group_login">
+                {loginText.map((item, index) => (
                   <input
                     key={index}
                     type={item.type}
-                    className="input-field"
+                    className="input-field1_login"
                     placeholder={item.placeholder}
                     name={item.placeholder.replace(/ /g, "").toLowerCase()}
-                    value={
-                      formData[
-                        item.placeholder.replace(/ /g, "").toLowerCase()
-                      ] || ""
-                    }
+                    value={loginFormData[item.placeholder.replace(/ /g, "").toLowerCase()] || ""}
                     onChange={this.handleChange}
                     required
                   />
                 ))}
-              </div>
-              <div className="input-right">
-                {right?.map((item, index) => (
-                  <input
-                    key={index}
-                    type={item.type}
-                    className="input-field"
-                    placeholder={item.placeholder}
-                    name={item.placeholder.replace(/ /g, "").toLowerCase()}
-                    value={
-                      formData[
-                        item.placeholder.replace(/ /g, "").toLowerCase()
-                      ] || ""
-                    }
-                    onChange={this.handleChange}
-                    required
-                  />
-                ))}
-              </div>
-              <button type="submit" className="submit-btnn">
-                Sign up
-              </button>
-            </form>
-          )}
-
-          {activeTab === "Log in" && (
-            
-            <form className="input-group_login">
-              {loginText.map((item, index) => (
-                <input
-                  key={index}
-                  type={item.type}
-                  className="input-field1_login"
-                  placeholder={item.placeholder}
-                  name={item.placeholder.replace(/ /g, "").toLowerCase()}
-                  value={
-                    loginFormData[
-                      item.placeholder.replace(/ /g, "").toLowerCase()
-                    ] || ""
-                  }
-                  onChange={this.handleChange}
-                  required
-                />
-              ))}
-              <a href="#" className="forget">
-                Forget/Change your password?
-              </a>
-              <button type="submit" className="submit-btnn">
-                Log in
-              </button>
-            </form>
-          )}
+                <a href="#" className="forget">Forget/Change your password?</a>
+                <button type="submit" className="submit-btnn">Log in</button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     );

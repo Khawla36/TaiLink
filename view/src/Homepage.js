@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Homepage.css";
 import Service from "./Service";
+import HelpAnimalModal from "./HelpAnimalModal";
 
 export default class Homepage extends Component {
   constructor(props) {
@@ -55,8 +56,7 @@ export default class Homepage extends Component {
     this.setState({ showModal: false, modalContent: null });
   };
 
-  handleEmptyClick = () => {
-  };
+  handleEmptyClick = () => {};
 
   handleExternalLink = (url) => {
     window.location.href = url;
@@ -84,9 +84,7 @@ export default class Homepage extends Component {
                   <button className="gallery-button1" onClick={() => this.openModal(<Service />)}>Find my pet</button>
                 )}
                 {index === 1 && (
-                  <button className="gallery-button2" onClick={this.handleEmptyClick}>
-                    Post my pet
-                  </button>
+                  <button className="gallery-button2" onClick={() => this.openModal(<HelpAnimalModal onClose={this.closeModal} show={true} />)}>Start a chat</button>
                 )}
                 {index === 2 && (
                   <button className="gallery-button3" onClick={() => this.handleExternalLink('https://trackipet.com/')}>Buy a microchip</button>
@@ -99,13 +97,6 @@ export default class Homepage extends Component {
         <button onClick={this.goToNext} className="arrow right-arrow" style={{ display: arrowRightDisplay }}>
           ❯
         </button>
-
-        <div className="squares-container">
-          <div className="square"></div>
-          <div className="square"></div>
-          <div className="square"></div>
-          <div className="square"></div>
-        </div>
 
         {showModal && (
           <div className="modal">
