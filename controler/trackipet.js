@@ -212,7 +212,7 @@ async function get_device_last_location_reports(access_token, account_id, device
   }
 }
 
-// Export functions
+
 module.exports = {
   do_login_and_get_access_token,
   get_user_details,
