@@ -14,7 +14,6 @@ const locationQuery = require('../model/database/LocationQuery');
 const pageQuery = require('../model/database/Pagequary');
 const connectionfc = require('../model/database/Connection');
 const connectionmp = require('../model/database/Menupagesquary');
-
 const port = process.env.PORT || 3001;
 const app = express();
 const server = http.createServer(app);

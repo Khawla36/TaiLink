@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Footer.css";
-import Contactus from "../Contactus";
+import Contactus from "../PageJs/Contactus";
 
 export default class Footer extends Component {
   constructor(props) {

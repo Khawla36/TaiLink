@@ -1,7 +1,7 @@
 // Header.js
 import React, { Component } from "react";
 import "./Header.css";
-import LoginModal from "../Login";
+import LoginModal from "../PageJs/Login";
 
 export default class Header extends Component {
   constructor(props) {

@@ -1,0 +1,128 @@
+.custom-modal {
+  position: fixed;
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+h2 {
+  margin: 60px;
+}
+
+.custom-modal-content {
+  background-color: #f0c5a2;
+  padding: 40px;
+  border: 1px solid #888;
+  width: 35%;
+  height: 50%;
+  z-index: 1001; 
+  text-align: center;
+  border-radius: 5px;
+  position: relative; 
+}
+
+.custom-modal-close {
+  color: #000000;
+  font-size: 28px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1001; 
+}
+
+.custom-modal-close:hover,
+.custom-modal-close:focus {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.custom-modal-input {
+  width: 70%; 
+  margin: 1px;
+  padding: 8px 12px; 
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #ffffff; 
+  color: black;
+}
+
+.custom-modal-button {
+  width: 50%; 
+  background-color: #b5d1d4;
+  color: white;
+  padding: 10px 16px;
+  margin: 30px auto; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  display: block;
+  color: #000000;
+  font-weight: 1000;
+  font-size: 14px;
+}
+
+.custom-modal-button:hover {
+  background-color: #92a8ab;
+}
+
+h2, p {
+  color: black;
+}
+
+.microchip-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.microchip-info-container1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.microchip-info-container2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.microchip-info {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 18px;
+  color: #000000;
+}
+
+.tooltip-image {
+  position: absolute;
+  top: -50px;
+  left: 20px;
+  width: 200px;
+  height: auto;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  z-index: 1002;
+  border-radius: 5px;
+}
+
+.fullname {
+  transform: translateY(-30px);
+}

@@ -1,0 +1,95 @@
+.custom-chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.custom-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.custom-message {
+  padding: 10px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+  text-align: left;
+  word-wrap: break-word; 
+  word-break: break-word; 
+  border-bottom: 1px solid #202020;
+}
+
+.custom-message:last-child {
+  border-bottom: none;
+}
+
+.custom-message-text {
+  flex: 1;
+  overflow-wrap: anywhere; 
+}
+
+.custom-message-time {
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  margin-left: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.custom-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  background-color: #f0f0f0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.custom-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.custom-button {
+  width: 48%;
+  background-color: #b5d1d4;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  display: block;
+  color: #000000;
+  font-weight: 1000;
+}
+
+.custom-button:hover {
+  background-color: #457fa0;
+}
+
+.custom-end-button {
+  width: 48%;
+  background-color: #f9a972;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Josefin Sans", sans-serif;
+  display: block;
+  color: #000000;
+  font-weight: 1000;
+}
+
+.custom-end-button:hover {
+  background-color: #e53935;
+}

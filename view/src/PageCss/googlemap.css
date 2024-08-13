@@ -1,0 +1,220 @@
+
+.sidebar {
+    width: 20%;
+    height: 795px;
+    background-color: #f9e5d5; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden; 
+    position: relative; 
+    padding: 50px;
+}
+
+.show1 {
+    background-color: #B5D1D4; 
+    padding: 16px 80px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    border-color: #B5D1D4;
+    white-space: nowrap; 
+}
+
+.show2 {
+    background-color: #B5D1D4; 
+    padding: 16px 90px;
+    border-radius: 5px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    border-color: #B5D1D4;
+    white-space: nowrap;
+}
+
+.show1:hover, .show2:hover {
+    background-color: #f9e5d5;
+}
+
+.petName {
+    font-weight: bold;
+    padding: 1px 0; 
+    border-radius: 0;
+    background-color: transparent;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    border: none;
+    white-space: nowrap;
+    font-size: 20px;
+
+}
+
+.locationName p {
+    margin: 5px 0;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px !important; 
+    font-weight: 600 !important; 
+    color: #333 !important; 
+}
+
+.latandlng {
+    display: flex !important; 
+    justify-content: space-between !important; 
+    width: 90% !important; 
+    margin-right: -30px;
+}
+
+.latandlng p {
+    margin: 3px 0 !important;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+}
+
+
+.sidebar p {
+    margin: 1px 0; 
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 14px; 
+    font-weight: 400;
+    font-size:10px;
+}
+
+.location-separator {
+    width: 100% !important;
+    height: 2px !important; 
+    background-color: black !important; 
+    margin: 10px 0; 
+    z-index: 9999999;
+    border: 1px solid rgb(0, 0, 0); 
+}
+
+
+
+.app-container {
+    display: flex;
+    margin-top: -25px;
+}
+
+.content-container-2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.audio-player-overlay {
+    width: 30%;
+    position: absolute; 
+    bottom: 80px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    margin-left: -80px;
+}
+
+.control-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.PlayPause {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#map {
+    flex: 1;
+    height: 795px;
+    margin: 0;
+    position: relative; 
+}
+
+
+
+
+.add-microchip-button {
+    background-color: #f9a972;
+    padding: 16px 70px;
+    border-radius: 5px;
+    margin-top: 570px; 
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap; 
+}
+
+select {
+    background-color: #f9e5d5;
+    padding: 16px 63px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 10px;
+    outline: none;
+    border: 2px solid black; 
+    border-radius: 5px;
+    white-space: nowrap; 
+}
+
+select:focus {
+    border-color: #000000;
+}
+
+select option {
+    background-color: #f9e5d5;
+    color: black;
+}
+
+
+
+
+.photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    flex: 1; 
+}
+
+.history {
+    font-family: 'Josefin Sans', sans-serif;
+    color: black;
+}
+
+.map-streetview-container { 
+    width: 20%; 
+    height:25%;
+    bottom: 130px; 
+    position: absolute !important;
+    z-index: 9999;
+}
+
+.timestamp-container {
+    margin-top: 320px;
+    font-family: 'Josefin Sans', sans-serif;
+    z-index: 300000;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}

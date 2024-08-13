@@ -2,12 +2,12 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import Header from './General/Header';
-import Aboutus from './Aboutus';
+import Aboutus from "./PageJs/Aboutus";
 import Footer from './General/Footer';
-import Contactus from "./Contactus";
-import Homepage from "./Homepage";
-import Service from "./Service";
-import Map from "./googlemap";
+import Contactus from "./PageJs/Contactus";
+import Homepage from "./PageJs/Homepage";
+import Service from "./PageJs/Service";
+import Map from "./PageJs/googlemap";
 
 const App = () => {
   return (
