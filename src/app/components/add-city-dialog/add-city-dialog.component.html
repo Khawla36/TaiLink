@@ -1,0 +1,41 @@
+<div class="dialog-container">
+  <h2 mat-dialog-title>Add city to {{data.countryName}}</h2>
+
+  <form [formGroup]="cityForm">
+    <mat-dialog-content>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>City Name</mat-label>
+        <input 
+          matInput 
+          formControlName="cityName"
+          placeholder="Enter city name">
+        
+        @if (cityNameControl?.touched) {
+          @if (cityNameControl?.hasError('required')) {
+            <mat-error>City name is required</mat-error>
+          } @else if (cityNameControl?.hasError('minlength')) {
+            <mat-error>City name must be at least 2 characters</mat-error>
+          } @else if (cityNameControl?.hasError('pattern')) {
+            <mat-error>Only letters, spaces and hyphens are allowed</mat-error>
+          }
+        }
+      </mat-form-field>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+      <button 
+        mat-button 
+        type="button"
+        (click)="onCancel()">
+        Cancel
+      </button>
+      <button 
+        mat-raised-button 
+        color="primary"
+        [disabled]="!cityForm.valid"
+        (click)="onSubmit()">
+        Add
+      </button>
+    </mat-dialog-actions>
+  </form>
+  </div>

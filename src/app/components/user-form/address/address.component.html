@@ -1,0 +1,75 @@
+<form [formGroup]="addressForm" class="address-form">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Enter name" required />
+    @if (addressForm.get('name')?.touched &&
+    addressForm.get('name')?.hasError('required')) {
+    <mat-error>Address name is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Select country</mat-label>
+    <mat-select formControlName="country">
+      @for (country of countries; track country.id) {
+      <mat-option [value]="country.id">{{ country.name }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <div class="city-field-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Select city</mat-label>
+      <mat-select formControlName="city">
+        @for (city of cities; track city.id) {
+        <mat-option [value]="city.name">{{ city.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="accent"
+      type="button"
+      class="add-city-button"
+      (click)="openAddCityDialog()"
+    >
+      Add City
+    </button>
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Street</mat-label>
+    <input
+      matInput
+      formControlName="street"
+      placeholder="Enter street"
+      required
+    />
+    @if (addressForm.get('street')?.touched &&
+    addressForm.get('street')?.hasError('required')) {
+    <mat-error>Street is required</mat-error>
+    }
+  </mat-form-field>
+
+  <div class="actions-container">
+    <button
+      mat-raised-button
+      color="warn"
+      type="button"
+      (click)="onRemoveAddress()"
+    >
+      Remove Address
+    </button>
+
+    <button
+      mat-raised-button
+      class="add-address-button"
+      type="button"
+      [disabled]="!addressForm.valid"
+      (click)="onAddAddress()"
+    >
+      Add Address
+    </button>
+  </div>
+</form>

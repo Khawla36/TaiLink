@@ -1,0 +1,102 @@
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+
+  mat-form-field {
+    width: 100%;
+  }
+  .add-address-button {
+    background-color: #3f51b5; 
+    color: white;
+    padding: 0 20px;
+    height: 40px;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: darken(#3f51b5, 10%);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(1px);
+      }
+    }
+
+    &:disabled {
+      background-color: rgba(0, 0, 0, 0.12);
+      color: rgba(0, 0, 0, 0.38);
+    }
+  }
+
+  .actions-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      mat-icon {
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .address-form {
+    padding: 1rem;
+
+    .actions-container {
+      flex-direction: column;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.mat-form-field {
+  transition: transform 0.2s ease;
+
+  &:focus-within {
+    transform: translateY(-2px);
+  }
+}
+
+.mat-error {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+// Custom styling for select dropdowns
+.mat-select-panel {
+  max-height: 300px;
+}
+
+// Button hover effects
+button {
+  transition: all 0.2s ease;
+  &:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &:not(:disabled):active {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,48 @@
+<form [formGroup]="userForm" class="form-container" (ngSubmit)="onSubmit()">
+ 
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      type="text"
+      placeholder=""
+      formControlName="name"
+      required
+    />
+    <mat-error *ngIf="nameControl?.hasError('required')">Name is required</mat-error>
+    <mat-error *ngIf="nameControl?.hasError('minlength')">Minimum 2 characters</mat-error>
+    <mat-error *ngIf="nameControl?.hasError('maxlength')">Cannot exceed 10 characters</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Birthdate</mat-label>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      placeholder="MM/DD/YYYY"
+      formControlName="birthdate"
+      required
+    />
+
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="birthdateControl?.hasError('required')">Birthdate is required</mat-error>
+  </mat-form-field>
+
+
+  <!-- Container displaying each address using the address component, 
+   allowing for dynamic addition, modification, and removal of addresses -->
+  <div class="addresses-container">
+    <div *ngFor="let address of addresses; let i = index" class="address-item">
+      <app-address
+        [address]="address"
+        (addressChange)="onAddressesChange($event)"
+        (remove)="onRemoveAddress(i)"
+      >
+    </app-address>
+    </div>
+  </div>
+
+
+  <button mat-raised-button type="submit" color="accent">Save</button>
+</form>
